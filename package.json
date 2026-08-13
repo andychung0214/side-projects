@@ -1,0 +1,10 @@
+{
+  "name": "side-projects",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test tests",
+    "check": "npm test && node --check src/app.js && node --check src/data/projects.js && node tests/static-check.js"
+  }
+}
