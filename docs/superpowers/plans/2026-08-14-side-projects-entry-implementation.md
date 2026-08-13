@@ -12,7 +12,7 @@
 
 - 實作根目錄固定為 `F:\Codex\Projects\side-projects`。
 - 網站名稱固定為「鍾狂｜Side Projects」。
-- 首版只有 `GAME` 與 `TOOL` 兩個分類，以及 12 個既有外部網址。
+- 首版只有「親子益智遊戲廳」與「實用工具研究所」兩個分類，以及 12 個既有外部網址。
 - 連結不可設定 `target="_blank"`，預設使用目前分頁開啟。
 - 未來新增分類、專案名稱與網址必須只需修改 `src/data/projects.js`。
 - 使用者提供的 Google Analytics 程式碼必須緊接在每個 HTML 文件的 `<head>` 元素後方；首版只有 `index.html`。
@@ -76,8 +76,8 @@ Expected: FAIL because `package.json`、資料檔與匯出函式尚未建立。
 
 ```js
 export const PROJECT_CATEGORIES = Object.freeze([
-  { id: "game", label: "GAME", title: "遊戲作品" },
-  { id: "tool", label: "TOOL", title: "網頁工具" },
+  { id: "game", label: "親子益智遊戲廳", title: "親子益智遊戲廳" },
+  { id: "tool", label: "實用工具研究所", title: "實用工具研究所" },
 ]);
 
 export const PROJECTS = Object.freeze([
@@ -189,7 +189,7 @@ git commit -m "feat: 建立鍾狂 side projects 單頁入口"
 - Create: `tests/style-contract.test.js`
 
 **Interfaces:**
-- CSS 以 `--paper`、`--ink`、`--cinnabar`、`--moss`、`--line` token 控制視覺。
+- CSS 以 `--paper`、`--ink`、`--forest-green`、`--moss`、`--line` token 控制視覺。
 - 首頁卡片在手機單欄、平板雙欄、桌機三欄排列。
 
 - [ ] **Step 1: Write the failing style contract tests**
@@ -203,7 +203,7 @@ const css = fs.readFileSync("styles.css", "utf8");
 
 test("包含日式紙張視覺 token", () => {
   assert.match(css, /--paper:\s*#F3EFE6/i);
-  assert.match(css, /--cinnabar:\s*#C9563D/i);
+  assert.match(css, /--forest-green:\s*#3F6652/i);
   assert.match(css, /--ink:\s*#202A32/i);
 });
 
@@ -222,7 +222,7 @@ Expected: FAIL because `styles.css` 尚未建立。
 
 - [ ] **Step 3: Implement the visual system**
 
-使用 `#F3EFE6` 和紙米白、`#202A32` 墨黑藍、`#C9563D` 朱印紅、`#708176` 苔灰綠與 `#D7CEC0` 暖灰細線。頁面使用細框、紙張切角、索引標籤與低幅度陰影；不使用玻璃擬態、霓虹漸層、外部字型、圖片 CDN 或大量圓角。
+使用 `#F3EFE6` 和紙米白、`#202A32` 墨黑藍、`#3F6652` 森林綠、`#708176` 苔灰綠與 `#D7CEC0` 暖灰細線。頁面使用細框、紙張切角、索引標籤與低幅度陰影；不使用玻璃擬態、霓虹漸層、外部字型、圖片 CDN 或大量圓角。
 
 建立手機預設單欄、`min-width: 48rem` 平板雙欄、`min-width: 75rem` 桌機三欄，並為所有互動元素提供清楚的 `:focus-visible` outline 與 `prefers-reduced-motion: reduce` 規則。
 

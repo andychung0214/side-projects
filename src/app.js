@@ -24,7 +24,7 @@ function renderProjectCard(project, index, category) {
   return `
     <a class="project-card" href="${escapeHtml(project.url)}">
       <span class="project-number">${String(index + 1).padStart(2, "0")}</span>
-      <span class="project-kind">${escapeHtml(category.label)}</span>
+      <span class="project-kind">${escapeHtml(category.id.toUpperCase())}</span>
       <strong>${escapeHtml(project.name)}</strong>
       <span class="project-arrow" aria-hidden="true">↗</span>
     </a>`;

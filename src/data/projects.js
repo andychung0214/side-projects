@@ -1,6 +1,6 @@
 export const PROJECT_CATEGORIES = Object.freeze([
-  { id: "game", label: "GAME", title: "遊戲作品" },
-  { id: "tool", label: "TOOL", title: "網頁工具" },
+  { id: "game", label: "親子益智遊戲廳", title: "親子益智遊戲廳" },
+  { id: "tool", label: "實用工具研究所", title: "實用工具研究所" },
 ]);
 
 export const PROJECTS = Object.freeze([

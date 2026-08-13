@@ -4,8 +4,8 @@
   --paper-deep: #E7DED0;
   --ink: #202A32;
   --ink-soft: #53616A;
-  --cinnabar: #C9563D;
-  --cinnabar-dark: #9D3F2D;
+  --forest-green: #3F6652;
+  --forest-green-dark: #2B4638;
   --moss: #708176;
   --line: #D7CEC0;
   --gold: #CDA65D;
@@ -121,7 +121,7 @@ main,
 
 .brand-text span,
 .header-note {
-  color: var(--cinnabar-dark);
+  color: var(--forest-green-dark);
   font-size: 0.63rem;
 }
 
@@ -148,7 +148,7 @@ main {
 
 .eyebrow {
   margin: 0 0 1rem;
-  color: var(--cinnabar);
+  color: var(--forest-green);
   font-size: 0.65rem;
   line-height: 1.5;
 }
@@ -165,13 +165,13 @@ main {
 }
 
 .hero h1 span {
-  color: var(--cinnabar);
+  color: var(--forest-green);
   font-weight: 400;
 }
 
 .hero h1 em {
   display: block;
-  color: var(--cinnabar);
+  color: var(--forest-green);
   font-size: 0.53em;
   font-style: normal;
   letter-spacing: -0.055em;
@@ -204,7 +204,7 @@ main {
   position: absolute;
   width: 3.2rem;
   height: 0.35rem;
-  background: var(--cinnabar);
+  background: var(--forest-green);
   content: "";
 }
 
@@ -221,7 +221,7 @@ main {
 }
 
 .ticket-label {
-  color: var(--cinnabar-dark);
+  color: var(--forest-green-dark);
   font-size: 0.62rem;
 }
 
@@ -252,11 +252,14 @@ main {
   align-items: center;
   gap: 0.75rem;
   min-height: 3.5rem;
+  min-width: 0;
   padding: 0.85rem 0.95rem;
   color: var(--ink);
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.78rem;
   letter-spacing: 0.12em;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
   text-decoration: none;
   transition: color 160ms ease, background-color 160ms ease;
 }
@@ -266,7 +269,7 @@ main {
 }
 
 .category-nav a span {
-  color: var(--cinnabar);
+  color: var(--forest-green);
   font-size: 0.65rem;
 }
 
@@ -293,6 +296,10 @@ main {
   border-bottom: 1px solid var(--ink);
 }
 
+.section-heading > div {
+  min-width: 0;
+}
+
 .section-heading .eyebrow {
   margin-bottom: 0.55rem;
 }
@@ -302,6 +309,7 @@ main {
   font-size: clamp(2.4rem, 10vw, 5rem);
   letter-spacing: -0.08em;
   line-height: 0.9;
+  overflow-wrap: anywhere;
 }
 
 .section-caption {
@@ -354,7 +362,7 @@ main {
 }
 
 .project-number {
-  color: var(--cinnabar);
+  color: var(--forest-green);
 }
 
 .project-kind {
@@ -374,15 +382,15 @@ main {
 
 .project-arrow {
   align-self: start;
-  color: var(--cinnabar);
+  color: var(--forest-green);
   font-size: 1.3rem;
   line-height: 1;
 }
 
 .project-card:hover {
-  border-color: var(--cinnabar);
-  background: #F9E9DE;
-  box-shadow: 0.35rem 0.35rem 0 var(--cinnabar);
+  border-color: var(--forest-green);
+  background: #E6EFE9;
+  box-shadow: 0.35rem 0.35rem 0 var(--forest-green);
   transform: translateY(-0.2rem);
 }
 

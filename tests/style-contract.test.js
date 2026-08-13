@@ -6,8 +6,10 @@ const css = fs.readFileSync("styles.css", "utf8");
 
 test("包含日式紙張視覺 token", () => {
   assert.match(css, /--paper:\s*#F3EFE6/i);
-  assert.match(css, /--cinnabar:\s*#C9563D/i);
+  assert.match(css, /--forest-green:\s*#3F6652/i);
+  assert.match(css, /--forest-green-dark:\s*#2B4638/i);
   assert.match(css, /--ink:\s*#202A32/i);
+  assert.doesNotMatch(css, /--cinnabar\b/i);
 });
 
 test("包含三個響應式區間與降低動態效果", () => {

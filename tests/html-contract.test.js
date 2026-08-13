@@ -12,6 +12,8 @@ test("Google Analytics 緊接在 head 後方", () => {
 
 test("首頁含兩個分類與 12 個外部連結", () => {
   assert.match(html, /鍾狂｜Side Projects/);
+  assert.match(html, /親子益智遊戲廳/);
+  assert.match(html, /實用工具研究所/);
   assert.match(html, /id="category-nav"/);
   assert.match(html, /id="project-directory"/);
   assert.equal((html.match(/https:\/\/(?:game|tool)\.crownchung\.tw\//g) ?? []).length, 12);

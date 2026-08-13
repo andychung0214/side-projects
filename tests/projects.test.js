@@ -6,8 +6,10 @@ import {
   validateProjectData,
 } from "../src/data/projects.js";
 
-test("包含 GAME 與 TOOL 兩個分類", () => {
+test("包含親子益智遊戲廳與實用工具研究所兩個分類", () => {
   assert.deepEqual(PROJECT_CATEGORIES.map((category) => category.id), ["game", "tool"]);
+  assert.deepEqual(PROJECT_CATEGORIES.map((category) => category.label), ["親子益智遊戲廳", "實用工具研究所"]);
+  assert.deepEqual(PROJECT_CATEGORIES.map((category) => category.title), ["親子益智遊戲廳", "實用工具研究所"]);
 });
 
 test("包含 12 個指定專案與正確網址", () => {

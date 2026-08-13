@@ -4,7 +4,7 @@
 
 - 在 `side-projects` 資料夾建立單一 side project 入口頁。
 - 網站名稱為「鍾狂｜Side Projects」。
-- 首版只分成 `GAME` 與 `TOOL`。
+- 首版只分成「親子益智遊戲廳」與「實用工具研究所」。
 - 顯示使用者提供的 12 個外部連結。
 - 連結預設使用目前分頁開啟。
 - 使用資料檔集中管理分類、名稱與網址，方便未來新增。
@@ -46,7 +46,7 @@
 3. 以測試確認資料 ID、分類、名稱與 HTTPS 網址。
 4. 建立含 Google Analytics 的單頁 HTML 與靜態 fallback 連結。
 5. 建立資料驅動的 Vanilla JavaScript 渲染程式。
-6. 套用米白、墨黑、朱印紅與苔綠的日式編輯部視覺。
+6. 套用米白、墨黑、森林綠與苔綠的日式編輯部視覺。
 7. 補齊 RWD、焦點、跳過連結與降低動態效果。
 8. 撰寫 README、視覺規範、測試計畫、貢獻規範與授權。
 9. 啟動靜態伺服器，以桌機與 390px 寬度檢查畫面與溢出。
@@ -68,7 +68,7 @@
 - [x] 新專案根目錄為 `F:\Codex\Projects\side-projects`。
 - [x] Git remote 為 `https://github.com/andychung0214/side-projects.git`。
 - [x] 首頁名稱為「鍾狂｜Side Projects」。
-- [x] `GAME` 與 `TOOL` 各顯示 6 個指定連結。
+- [x] 「親子益智遊戲廳」與「實用工具研究所」各顯示 6 個指定連結。
 - [x] 所有連結不含 `_blank`，預設目前分頁開啟。
 - [x] 新增分類、名稱或網址只需修改 `src/data/projects.js`。
 - [x] Google Analytics 程式碼緊接在 `<head>` 後方。
