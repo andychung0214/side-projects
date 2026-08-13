@@ -29,7 +29,8 @@ test("入口頁靜態伺服器可回應", async () => {
     const requestPath = new URL(request.url ?? "/", "http://127.0.0.1").pathname;
     const relativePath = requestPath === "/" ? "index.html" : requestPath.slice(1);
     const file = path.resolve(root, relativePath);
-    if (!file.startsWith(root) || !fs.existsSync(file) || !fs.statSync(file).isFile()) {
+    const relativeToRoot = path.relative(root, file);
+    if (relativeToRoot.startsWith("..") || path.isAbsolute(relativeToRoot) || !fs.existsSync(file) || !fs.statSync(file).isFile()) {
       response.writeHead(404).end();
       return;
     }
