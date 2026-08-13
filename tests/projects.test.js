@@ -12,9 +12,34 @@ test("包含 GAME 與 TOOL 兩個分類", () => {
 
 test("包含 12 個指定專案與正確網址", () => {
   assert.equal(PROJECTS.length, 12);
-  assert.equal(PROJECTS.find((project) => project.name === "祭典賓果").url, "https://game.crownchung.tw/crown-bingo/");
-  assert.equal(PROJECTS.find((project) => project.name === "狂輪誌").url, "https://tool.crownchung.tw/crown-ride-atlas/#/home");
-  assert.equal(PROJECTS.find((project) => project.name === "月下冷梗旅店").url, "https://tool.crownchung.tw/moonlit-punchline/");
+  assert.deepEqual(PROJECTS.map((project) => project.name), [
+    "祭典賓果",
+    "墨金字句",
+    "櫻花算術社",
+    "形算小工房",
+    "數字偵探社",
+    "字字成章",
+    "狂輪誌",
+    "紙翼圖鑑",
+    "去背",
+    "台前桌球研習所",
+    "曆見顧問案卷",
+    "月下冷梗旅店",
+  ]);
+  assert.deepEqual(PROJECTS.map((project) => project.url), [
+    "https://game.crownchung.tw/crown-bingo/",
+    "https://game.crownchung.tw/mojin-stage/",
+    "https://game.crownchung.tw/sakura-math-club/",
+    "https://game.crownchung.tw/shape-sum-atelier/",
+    "https://game.crownchung.tw/case-four/",
+    "https://game.crownchung.tw/idiom-loom/",
+    "https://tool.crownchung.tw/crown-ride-atlas/#/home",
+    "https://tool.crownchung.tw/paper-flight-atlas/",
+    "https://tool.crownchung.tw/perfect-cut/",
+    "https://tool.crownchung.tw/tableside/",
+    "https://tool.crownchung.tw/koyomi-consult/",
+    "https://tool.crownchung.tw/moonlit-punchline/",
+  ]);
 });
 
 test("資料 ID、分類與網址格式有效", () => {
