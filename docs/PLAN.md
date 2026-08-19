@@ -4,8 +4,8 @@
 
 - 在 `side-projects` 資料夾建立單一 side project 入口頁。
 - 網站名稱為「鍾狂｜Side Projects」。
-- 首版只分成「親子益智遊戲廳」與「實用工具研究所」。
-- 顯示使用者提供的 12 個外部連結。
+- 首版分成「親子益智遊戲廳」、「實用工具研究所」與「作品集」。
+- 顯示使用者提供的 18 個外部連結。
 - 連結預設使用目前分頁開啟。
 - 使用資料檔集中管理分類、名稱與網址，方便未來新增。
 - 套用降低 AI 感的日式入口網站視覺。
@@ -42,7 +42,7 @@
 ## 工作分解
 
 1. 建立新的 `side-projects` Git 專案與 `feature/side-projects` 分支。
-2. 在資料檔登錄 2 個分類、12 個專案名稱與網址。
+2. 在資料檔登錄 3 個分類、18 個專案名稱與網址。
 3. 以測試確認資料 ID、分類、名稱與 HTTPS 網址。
 4. 建立含 Google Analytics 的單頁 HTML 與靜態 fallback 連結。
 5. 建立資料驅動的 Vanilla JavaScript 渲染程式。
@@ -56,9 +56,9 @@
 
 | 風險 | 影響 | 緩解方式 |
 |---|---|---|
-| 連結名稱或網址輸入錯誤 | 訪客進入錯誤作品 | 資料測試固定比對 12 個指定網址 |
+| 連結名稱或網址輸入錯誤 | 訪客進入錯誤作品 | 資料測試固定比對 18 個指定網址 |
 | 未來新增分類忘記改版面 | 新分類不顯示 | 版面由 `PROJECT_CATEGORIES` 與 `PROJECTS` 自動產生 |
-| JavaScript 載入失敗 | 動態內容不顯示 | HTML 先提供 12 個原生 fallback 連結 |
+| JavaScript 載入失敗 | 動態內容不顯示 | HTML 先提供 18 個原生 fallback 連結 |
 | 手機中文字超出卡片 | 版面水平溢出 | `min-width: 0`、`overflow-wrap`、390px 實機寬度檢查 |
 | GA 放置位置錯誤 | 追蹤設定不符合要求 | HTML 契約測試檢查 `<head>` 後第一段內容 |
 | 靜態託管子路徑不同 | SEO URL 不準確 | README 明確列出正式部署前要替換的網址 |
@@ -68,7 +68,7 @@
 - [x] 新專案根目錄為 `F:\Codex\Projects\side-projects`。
 - [x] Git remote 為 `https://github.com/andychung0214/side-projects.git`。
 - [x] 首頁名稱為「鍾狂｜Side Projects」。
-- [x] 「親子益智遊戲廳」與「實用工具研究所」各顯示 6 個指定連結。
+- [x] 「親子益智遊戲廳」、「實用工具研究所」與「作品集」各顯示 6 個指定連結。
 - [x] 所有連結不含 `_blank`，預設目前分頁開啟。
 - [x] 新增分類、名稱或網址只需修改 `src/data/projects.js`。
 - [x] Google Analytics 程式碼緊接在 `<head>` 後方。

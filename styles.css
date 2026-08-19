@@ -241,7 +241,7 @@ main {
 
 .category-nav {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: 1fr;
   margin-block: 2rem 4rem;
   border-top: 1px solid var(--ink);
   border-bottom: 1px solid var(--ink);
@@ -265,7 +265,7 @@ main {
 }
 
 .category-nav a + a {
-  border-left: 1px solid var(--ink);
+  border-top: 1px solid var(--ink);
 }
 
 .category-nav a span {
@@ -421,6 +421,15 @@ a:focus-visible {
   main,
   .site-footer {
     width: min(calc(100% - 3rem), var(--content-width));
+  }
+
+  .category-nav {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .category-nav a + a {
+    border-top: 0;
+    border-left: 1px solid var(--ink);
   }
 
   .hero {

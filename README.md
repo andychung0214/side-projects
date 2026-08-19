@@ -1,13 +1,14 @@
 # 鍾狂｜Side Projects
 
-「鍾狂｜Side Projects」是鍾狂（crown）的個人 side project 入口頁，集中放置親子益智遊戲與實用工具連結。這個網站本身不執行遊戲或工具，只負責讓訪客清楚找到作品並前往使用。
+「鍾狂｜Side Projects」是鍾狂（crown）的個人 side project 入口頁，集中放置親子益智遊戲、實用工具與作品集連結。這個網站本身不執行遊戲或工具，只負責讓訪客清楚找到作品並前往使用。
 
 ## 專案介紹
 
-首頁目前分成兩類：
+首頁目前分成三類：
 
 - **親子益智遊戲廳**：祭典賓果、墨金字句、櫻花算術社、形算小工房、數字偵探社、字字成章。
 - **實用工具研究所**：狂輪誌、紙翼圖鑑、去背、台前桌球研習所、曆見顧問案卷、月下冷梗旅店。
+- **作品集**：安暮恆生活、A & M Blog、個人履歷、後台、森影歲月、訂閱。
 
 ## 特色
 
@@ -22,7 +23,7 @@
 ## 操作方式
 
 1. 開啟首頁。
-2. 從「親子益智遊戲廳」或「實用工具研究所」快速跳轉。
+2. 從「親子益智遊戲廳」、「實用工具研究所」或「作品集」快速跳轉。
 3. 點擊作品卡片，即可在目前分頁前往對應 side project。
 4. 使用鍵盤時，以 `Tab` 移動焦點、`Enter` 開啟連結。
 
@@ -46,13 +47,13 @@ python -m http.server 4321
 export const PROJECT_CATEGORIES = Object.freeze([
   { id: "game", label: "親子益智遊戲廳", title: "親子益智遊戲廳" },
   { id: "tool", label: "實用工具研究所", title: "實用工具研究所" },
-  { id: "note", label: "NOTE", title: "筆記作品" },
+  { id: "portfolio", label: "作品集", title: "作品集" },
 ]);
 
 export const PROJECTS = Object.freeze([
   {
     id: "new-project",
-    category: "note",
+    category: "portfolio",
     name: "新作品名稱",
     url: "https://example.com/new-project/",
   },
@@ -72,7 +73,7 @@ side-projects/
 │   └── data/projects.js                # 唯一的分類與專案資料來源
 ├── tests/
 │   ├── projects.test.js                # 分類、名稱、網址與資料驗證
-│   ├── html-contract.test.js           # HTML、GA、12 個連結與同分頁契約
+│   ├── html-contract.test.js           # HTML、GA、18 個連結與同分頁契約
 │   ├── style-contract.test.js          # 色票、RWD、焦點與動效契約
 │   └── static-check.js                 # 靜態檔案與 HTTP 路徑檢查
 ├── docs/
@@ -96,9 +97,9 @@ npm run check
 
 測試涵蓋：
 
-- 兩個分類與 12 個指定連結的完整性。
+- 三個分類與 18 個指定連結的完整性。
 - Google Analytics 是否緊接在 `<head>` 後方。
-- 首頁是否含「鍾狂｜Side Projects」、12 個網址與無 `_blank`。
+- 首頁是否含「鍾狂｜Side Projects」、18 個網址與無 `_blank`。
 - 日式色票、三段 RWD、鍵盤焦點與降低動態效果。
 - 靜態文件與 HTTP 路徑是否可以讀取。
 

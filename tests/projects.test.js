@@ -6,14 +6,14 @@ import {
   validateProjectData,
 } from "../src/data/projects.js";
 
-test("包含親子益智遊戲廳與實用工具研究所兩個分類", () => {
-  assert.deepEqual(PROJECT_CATEGORIES.map((category) => category.id), ["game", "tool"]);
-  assert.deepEqual(PROJECT_CATEGORIES.map((category) => category.label), ["親子益智遊戲廳", "實用工具研究所"]);
-  assert.deepEqual(PROJECT_CATEGORIES.map((category) => category.title), ["親子益智遊戲廳", "實用工具研究所"]);
+test("包含三個入口分類", () => {
+  assert.deepEqual(PROJECT_CATEGORIES.map((category) => category.id), ["game", "tool", "portfolio"]);
+  assert.deepEqual(PROJECT_CATEGORIES.map((category) => category.label), ["親子益智遊戲廳", "實用工具研究所", "作品集"]);
+  assert.deepEqual(PROJECT_CATEGORIES.map((category) => category.title), ["親子益智遊戲廳", "實用工具研究所", "作品集"]);
 });
 
-test("包含 12 個指定專案與正確網址", () => {
-  assert.equal(PROJECTS.length, 12);
+test("包含 18 個指定專案與正確網址", () => {
+  assert.equal(PROJECTS.length, 18);
   assert.deepEqual(PROJECTS.map((project) => project.name), [
     "祭典賓果",
     "墨金字句",
@@ -27,6 +27,12 @@ test("包含 12 個指定專案與正確網址", () => {
     "台前桌球研習所",
     "曆見顧問案卷",
     "月下冷梗旅店",
+    "安暮恆生活",
+    "A & M Blog",
+    "個人履歷",
+    "後台",
+    "森影歲月",
+    "訂閱",
   ]);
   assert.deepEqual(PROJECTS.map((project) => project.url), [
     "https://game.crownchung.tw/crown-bingo/",
@@ -41,6 +47,12 @@ test("包含 12 個指定專案與正確網址", () => {
     "https://tool.crownchung.tw/tableside/",
     "https://tool.crownchung.tw/koyomi-consult/",
     "https://tool.crownchung.tw/moonlit-punchline/",
+    "https://shop.crownchung.tw/",
+    "https://www.crownchung.tw/",
+    "https://portfolio.crownchung.tw",
+    "https://admin.crownchung.tw/#/auth/login",
+    "https://album.crownchung.tw/",
+    "https://subscriptions.crownchung.tw/",
   ]);
 });
 

@@ -8,6 +8,12 @@ const HTML_ESCAPE_MAP = Object.freeze({
   "'": "&#39;",
 });
 
+const CATEGORY_EYEBROWS = Object.freeze({
+  game: "PLAYABLE WORKS",
+  tool: "USEFUL THINGS",
+  portfolio: "SELECTED WORKS",
+});
+
 export function escapeHtml(value) {
   return String(value ?? "").replace(/[&<>"']/g, (character) => HTML_ESCAPE_MAP[character]);
 }
@@ -37,7 +43,7 @@ export function renderProjectSections(categories, projects) {
       <section class="project-section" id="category-${escapeHtml(category.id)}" aria-labelledby="category-${escapeHtml(category.id)}-title">
         <div class="section-heading">
           <div>
-            <p class="eyebrow">${String(categoryIndex + 1).padStart(2, "0")} / ${category.id === "game" ? "PLAYABLE WORKS" : "USEFUL THINGS"}</p>
+            <p class="eyebrow">${String(categoryIndex + 1).padStart(2, "0")} / ${CATEGORY_EYEBROWS[category.id] ?? "SELECTED WORKS"}</p>
             <h2 id="category-${escapeHtml(category.id)}-title">${escapeHtml(category.label)}</h2>
           </div>
           <p class="section-caption">${escapeHtml(category.title)}<br>${String(categoryProjects.length).padStart(2, "0")} LINKS</p>

@@ -1,6 +1,7 @@
 export const PROJECT_CATEGORIES = Object.freeze([
   { id: "game", label: "親子益智遊戲廳", title: "親子益智遊戲廳" },
   { id: "tool", label: "實用工具研究所", title: "實用工具研究所" },
+  { id: "portfolio", label: "作品集", title: "作品集" },
 ]);
 
 export const PROJECTS = Object.freeze([
@@ -75,6 +76,42 @@ export const PROJECTS = Object.freeze([
     category: "tool",
     name: "月下冷梗旅店",
     url: "https://tool.crownchung.tw/moonlit-punchline/",
+  },
+  {
+    id: "an-mu-heng-life",
+    category: "portfolio",
+    name: "安暮恆生活",
+    url: "https://shop.crownchung.tw/",
+  },
+  {
+    id: "a-and-m-blog",
+    category: "portfolio",
+    name: "A & M Blog",
+    url: "https://www.crownchung.tw/",
+  },
+  {
+    id: "personal-resume",
+    category: "portfolio",
+    name: "個人履歷",
+    url: "https://portfolio.crownchung.tw",
+  },
+  {
+    id: "admin-login",
+    category: "portfolio",
+    name: "後台",
+    url: "https://admin.crownchung.tw/#/auth/login",
+  },
+  {
+    id: "forest-shadow-years",
+    category: "portfolio",
+    name: "森影歲月",
+    url: "https://album.crownchung.tw/",
+  },
+  {
+    id: "subscriptions",
+    category: "portfolio",
+    name: "訂閱",
+    url: "https://subscriptions.crownchung.tw/",
   },
 ]);
 
