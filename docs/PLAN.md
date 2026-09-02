@@ -4,8 +4,8 @@
 
 - 在 `side-projects` 資料夾建立單一 side project 入口頁。
 - 網站名稱為「鍾狂｜Side Projects」。
-- 首版分成「親子益智遊戲廳」、「實用工具研究所」與「作品集」。
-- 顯示使用者提供的 29 個外部連結。
+- 首版分成「親子益智遊戲廳」、「實用工具研究所」、「作品集」與「數據報表分類」。
+- 顯示使用者提供的 31 個外部連結；遊戲再分為「益智挑戰」、「數學遊戲」、「知識挑戰」、「家庭團康」、「桌遊」五個頁籤。
 - 連結預設使用目前分頁開啟。
 - 使用資料檔集中管理分類、名稱與網址，方便未來新增。
 - 套用降低 AI 感的日式入口網站視覺。
@@ -17,7 +17,8 @@
 
 - 語意化單頁 HTML 入口。
 - `src/data/projects.js` 連結資料來源與資料驗證。
-- Vanilla JavaScript 分類與卡片渲染。
+- Vanilla JavaScript 分類、遊戲頁籤與卡片渲染。
+- 使用 ARIA Tab/Panel 結構與鍵盤操作切換遊戲頁籤。
 - 日式編輯部 × 和紙書籤視覺、RWD、鍵盤焦點與降低動態效果。
 - Google Analytics、SEO、Open Graph、JSON-LD、robots 與 sitemap。
 - Node.js 內建測試與 HTTP 靜態檔案檢查。
@@ -42,12 +43,12 @@
 ## 工作分解
 
 1. 建立新的 `side-projects` Git 專案與 `feature/side-projects` 分支。
-2. 在資料檔登錄 3 個分類、29 個專案名稱與網址。
-3. 以測試確認資料 ID、分類、名稱與 HTTPS 網址。
+2. 在資料檔登錄 4 個分類、5 個遊戲頁籤、31 個專案名稱與網址。
+3. 以測試確認資料 ID、分類、頁籤、名稱與 HTTPS 網址。
 4. 建立含 Google Analytics 的單頁 HTML 與靜態 fallback 連結。
-5. 建立資料驅動的 Vanilla JavaScript 渲染程式。
+5. 建立資料驅動的 Vanilla JavaScript 渲染程式與遊戲頁籤切換。
 6. 套用米白、墨黑、森林綠與苔綠的日式編輯部視覺。
-7. 補齊 RWD、焦點、跳過連結與降低動態效果。
+7. 補齊 RWD、焦點、鍵盤頁籤操作、跳過連結與降低動態效果。
 8. 撰寫 README、視覺規範、測試計畫、貢獻規範與授權。
 9. 啟動靜態伺服器，以桌機與 390px 寬度檢查畫面與溢出。
 10. 在推送前顯示 remote、branch、commit，再推送至 `side-projects` GitHub 儲存庫。
@@ -56,9 +57,10 @@
 
 | 風險 | 影響 | 緩解方式 |
 |---|---|---|
-| 連結名稱或網址輸入錯誤 | 訪客進入錯誤作品 | 資料測試固定比對 29 個指定網址 |
+| 連結名稱或網址輸入錯誤 | 訪客進入錯誤作品 | 資料測試固定比對 31 個指定網址 |
 | 未來新增分類忘記改版面 | 新分類不顯示 | 版面由 `PROJECT_CATEGORIES` 與 `PROJECTS` 自動產生 |
-| JavaScript 載入失敗 | 動態內容不顯示 | HTML 先提供 29 個原生 fallback 連結 |
+| 遊戲頁籤分組填寫錯誤 | 訪客在錯誤頁籤找到遊戲 | `GAME_TABS` 與遊戲專案 `tab` 欄位集中管理，測試固定比對 17 個分組 |
+| JavaScript 載入失敗 | 動態內容不顯示 | HTML 先提供 31 個原生 fallback 連結 |
 | 手機中文字超出卡片 | 版面水平溢出 | `min-width: 0`、`overflow-wrap`、390px 實機寬度檢查 |
 | GA 放置位置錯誤 | 追蹤設定不符合要求 | HTML 契約測試檢查 `<head>` 後第一段內容 |
 | 靜態託管子路徑不同 | SEO URL 不準確 | README 明確列出正式部署前要替換的網址 |
@@ -68,7 +70,10 @@
 - [x] 新專案根目錄為 `F:\Codex\Projects\side-projects`。
 - [x] Git remote 為 `https://github.com/andychung0214/side-projects.git`。
 - [x] 首頁名稱為「鍾狂｜Side Projects」。
+- [x] 首頁提供「數據報表分類」入口，目前顯示 01 LINKS，包含稜光數據工房。
 - [x] 「親子益智遊戲廳」顯示 17 個指定連結；「實用工具研究所」與「作品集」各顯示 6 個指定連結。
+- [x] 「親子益智遊戲廳」提供五個頁籤，18 個遊戲依需求分配至正確頁籤。
+- [x] 遊戲頁籤具備 ARIA 關聯、點擊切換與方向鍵、`Home`、`End` 鍵盤操作。
 - [x] 所有連結不含 `_blank`，預設目前分頁開啟。
 - [x] 新增分類、名稱或網址只需修改 `src/data/projects.js`。
 - [x] Google Analytics 程式碼緊接在 `<head>` 後方。

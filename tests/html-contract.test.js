@@ -10,16 +10,23 @@ test("Google Analytics 緊接在 head 後方", () => {
   assert.match(html, /gtag\(\s*["']config["']\s*,\s*["']G-SSL74LQSNB["']\s*\)/);
 });
 
-test("首頁含三個分類與 29 個外部連結", () => {
+test("首頁含四個分類與 31 個外部連結", () => {
   assert.match(html, /鍾狂｜Side Projects/);
   assert.match(html, /親子益智遊戲廳/);
   assert.match(html, /實用工具研究所/);
   assert.match(html, /作品集/);
+  assert.match(html, /數據報表分類/);
   assert.match(html, /id="category-nav"/);
   assert.match(html, /id="project-directory"/);
+  assert.match(html, /href="#category-reports"/);
+  assert.match(html, /id="category-reports"/);
 
   const projectCardLinks = html.match(/class="project-card" href="https:\/\/[^\"]+"/g) ?? [];
-  assert.equal(projectCardLinks.length, 29);
+  assert.equal(projectCardLinks.length, 31);
+  assert.match(html, /稜光數據工房/);
+  assert.match(html, /href="https:\/\/tool\.crownchung\.tw\/prism-foundry"/);
+  assert.match(html, /月影九宮/);
+  assert.match(html, /href="https:\/\/game\.crownchung\.tw\/tsukikage-sudoku\/"/);
   assert.match(html, /href="https:\/\/game\.crownchung\.tw\/woodland-rummikub\/"/);
   for (const url of [
     "https://game.crownchung.tw/pattern-parade/",

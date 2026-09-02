@@ -2,110 +2,143 @@ export const PROJECT_CATEGORIES = Object.freeze([
   { id: "game", label: "親子益智遊戲廳", title: "親子益智遊戲廳" },
   { id: "tool", label: "實用工具研究所", title: "實用工具研究所" },
   { id: "portfolio", label: "作品集", title: "作品集" },
+  { id: "reports", label: "數據報表分類", title: "數據報表分類" },
+]);
+
+export const GAME_TABS = Object.freeze([
+  { id: "puzzle", label: "益智挑戰" },
+  { id: "math", label: "數學遊戲" },
+  { id: "knowledge", label: "知識挑戰" },
+  { id: "family", label: "家庭團康" },
+  { id: "board", label: "桌遊" },
 ]);
 
 export const PROJECTS = Object.freeze([
   {
     id: "crown-bingo",
     category: "game",
+    tab: "family",
     name: "祭典賓果",
     url: "https://game.crownchung.tw/crown-bingo/",
   },
   {
     id: "woodland-rummikub",
     category: "game",
+    tab: "board",
     name: "木間拉密",
     url: "https://game.crownchung.tw/woodland-rummikub/",
   },
   {
     id: "mojin-stage",
     category: "game",
+    tab: "knowledge",
     name: "墨金字句",
     url: "https://game.crownchung.tw/mojin-stage/",
   },
   {
     id: "sakura-math-club",
     category: "game",
+    tab: "math",
     name: "櫻花算術社",
     url: "https://game.crownchung.tw/sakura-math-club/",
   },
   {
     id: "shape-sum-atelier",
     category: "game",
+    tab: "math",
     name: "形算小工房",
     url: "https://game.crownchung.tw/shape-sum-atelier/",
   },
   {
     id: "case-four",
     category: "game",
+    tab: "puzzle",
     name: "數字偵探社",
     url: "https://game.crownchung.tw/case-four/",
   },
   {
     id: "idiom-loom",
     category: "game",
+    tab: "knowledge",
     name: "字字成章",
     url: "https://game.crownchung.tw/idiom-loom/",
   },
   {
     id: "pattern-parade",
     category: "game",
+    tab: "puzzle",
     name: "圖形規律王",
     url: "https://game.crownchung.tw/pattern-parade/",
   },
   {
     id: "color-mix-lab",
     category: "game",
+    tab: "puzzle",
     name: "色彩調律所",
     url: "https://game.crownchung.tw/color-mix-lab/",
   },
   {
     id: "flag-notes",
     category: "game",
+    tab: "knowledge",
     name: "旗語旅箋",
     url: "https://game.crownchung.tw/flag-notes/",
   },
   {
     id: "komorebi-grid",
     category: "game",
+    tab: "board",
     name: "木漏日三子棋",
     url: "https://game.crownchung.tw/komorebi-grid/",
   },
   {
     id: "paperwing-parade",
     category: "game",
+    tab: "family",
     name: "紙翼巡遊",
     url: "https://game.crownchung.tw/paperwing-parade/",
   },
   {
     id: "landmark-atlas",
     category: "game",
+    tab: "knowledge",
     name: "尋國誌",
     url: "https://game.crownchung.tw/landmark-atlas/",
   },
   {
     id: "balance-garden",
     category: "game",
+    tab: "puzzle",
     name: "平衡庭",
     url: "https://game.crownchung.tw/balance-garden/",
   },
   {
     id: "sanmoku-no-ma",
     category: "game",
+    tab: "board",
     name: "三目之間",
     url: "https://game.crownchung.tw/sanmoku-no-ma/",
   },
   {
     id: "memory-garden",
     category: "game",
+    tab: "puzzle",
     name: "記憶庭院",
     url: "https://game.crownchung.tw/memory-garden/",
   },
   {
     id: "curiosity-atlas",
     category: "game",
+    tab: "knowledge",
     name: "小博士探險所",
     url: "https://game.crownchung.tw/curiosity-atlas/",
+  },
+  {
+    id: "tsukikage-sudoku",
+    category: "game",
+    tab: "puzzle",
+    name: "月影九宮",
+    url: "https://game.crownchung.tw/tsukikage-sudoku/",
   },
   {
     id: "crown-ride-atlas",
@@ -179,13 +212,19 @@ export const PROJECTS = Object.freeze([
     name: "訂閱",
     url: "https://subscriptions.crownchung.tw/",
   },
+  {
+    id: "prism-foundry",
+    category: "reports",
+    name: "稜光數據工房",
+    url: "https://tool.crownchung.tw/prism-foundry",
+  },
 ]);
 
 function isNonEmptyString(value) {
   return typeof value === "string" && value.trim().length > 0;
 }
 
-export function validateProjectData(categories, projects) {
+export function validateProjectData(categories, projects, gameTabs = GAME_TABS) {
   if (!Array.isArray(categories) || categories.length === 0) {
     throw new Error("至少需要一個專案分類。");
   }
@@ -199,6 +238,21 @@ export function validateProjectData(categories, projects) {
       throw new Error(`專案分類 ID 重複：${category.id}`);
     }
     categoryIds.add(category.id);
+  }
+
+  if (!Array.isArray(gameTabs) || gameTabs.length === 0) {
+    throw new Error("至少需要一個遊戲頁籤。");
+  }
+
+  const gameTabIds = new Set();
+  for (const tab of gameTabs) {
+    if (!isNonEmptyString(tab?.id) || !isNonEmptyString(tab?.label)) {
+      throw new Error("遊戲頁籤必須包含非空的 id 與 label。");
+    }
+    if (gameTabIds.has(tab.id)) {
+      throw new Error(`遊戲頁籤 ID 重複：${tab.id}`);
+    }
+    gameTabIds.add(tab.id);
   }
 
   if (!Array.isArray(projects) || projects.length === 0) {
@@ -215,6 +269,9 @@ export function validateProjectData(categories, projects) {
     }
     if (!categoryIds.has(project.category)) {
       throw new Error(`專案使用不存在的分類：${project.category}`);
+    }
+    if (project.category === "game" && !gameTabIds.has(project.tab)) {
+      throw new Error(`遊戲專案使用不存在的頁籤：${project.tab}`);
     }
     if (!project.url.startsWith("https://")) {
       throw new Error(`專案網址必須使用 HTTPS：${project.url}`);

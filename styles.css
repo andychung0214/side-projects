@@ -321,6 +321,40 @@ main {
   text-align: right;
 }
 
+.game-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  padding-block: 1rem 0.75rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.game-tab {
+  flex: 1 1 8rem;
+  min-width: min(100%, 8rem);
+  padding: 0.7rem 0.8rem;
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  background: transparent;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.08em;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: color 160ms ease, background-color 160ms ease, border-color 160ms ease;
+}
+
+.game-tab:hover,
+.game-tab[aria-selected="true"] {
+  border-color: var(--ink);
+  color: var(--paper-light);
+  background: var(--ink);
+}
+
+.game-tab-panel[hidden] {
+  display: none;
+}
+
 .project-grid {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
@@ -409,7 +443,8 @@ main {
   line-height: 1.7;
 }
 
-a:focus-visible {
+a:focus-visible,
+button:focus-visible {
   position: relative;
   z-index: 2;
   outline: 3px solid var(--focus);
